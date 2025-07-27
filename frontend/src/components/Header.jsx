@@ -38,7 +38,7 @@ const Header = () => {
                 key={item.id}
                 to={item.path}
                 className={`
-                  px-4 py-2 rounded-full font-bold text-base transition-all duration-300 transform hover:scale-105 relative overflow-hidden
+                  px-4 py-2 rounded-md font-bold text-base transition-all duration-300 transform hover:scale-105 relative overflow-hidden justify-content-center
                   ${isActivePath(item.path)
                     ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-white shadow-lg' 
                     : 'text-white hover:text-emerald-400 bg-white bg-opacity-5 hover:bg-opacity-10'

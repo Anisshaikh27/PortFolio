@@ -1,8 +1,11 @@
 // src/pages/Home.jsx
 import React from 'react';
+import { motion } from 'framer-motion';
 import Button from '../components/Button';
+import AnimatedRole from '../components/AnimatedRole';
+import AnimatedProfile from '../components/AnimatedProfile';
 
-const Home = () => {
+const HomePage = () => {
   return (
     <section className="min-h-screen flex items-center py-16 px-4 relative">
       <div className="container mx-auto max-w-6xl">
@@ -11,70 +14,97 @@ const Home = () => {
           {/* Left Side - Text Content */}
           <div className="flex-1 text-center lg:text-left">
             <div className="mb-8">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              {/* Animated Main Heading */}
+              <motion.h1 
+                className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight mb-6"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
                 <span className="text-white">Hi, I'm </span>
-                <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+                <motion.span 
+                  className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                >
                   Anis Shaikh
-                </span>
-              </h1>
+                </motion.span>
+              </motion.h1>
               
-              <p className="text-xl md:text-2xl text-gray-300 font-medium mb-6">
-                Frontend Developer & UI Designer
-              </p>
+              {/* Replace the static subtitle with AnimatedRole */}
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+              >
+                <AnimatedRole />
+              </motion.div>
               
-              <p className="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                I create beautiful, responsive websites and web applications 
-                that provide exceptional user experiences with modern technologies 
-                and clean, efficient code.
-              </p>
+              {/* Animated Description */}
+              <motion.p 
+                className="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1.0 }}
+              >
+                A Tech Enthusiastic Web Developer with a Passion for Crafting Digital Experiences.
+              </motion.p>
             </div>
             
-            {/* Action Buttons - Using Link instead of DOM manipulation */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
+            {/* Animated Action Buttons */}
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+            >
               <Button variant="primary" size="large" to="/projects">
                 View My Work
               </Button>
               <Button variant="secondary" size="large" to="/contact">
                 Get In Touch
               </Button>
-            </div>
+            </motion.div>
             
-            {/* Stats Cards */}
-            <div className="flex justify-center lg:justify-start gap-6">
-              <div className="bg-white bg-opacity-5 backdrop-blur-sm rounded-xl p-4 text-center border border-emerald-400 border-opacity-20 hover:border-opacity-40 hover:bg-opacity-10 transition-all duration-300">
-                <div className="text-2xl font-bold text-white">15+</div>
-                <div className="text-sm text-gray-400">Projects</div>
-              </div>
-              <div className="bg-white bg-opacity-5 backdrop-blur-sm rounded-xl p-4 text-center border border-cyan-400 border-opacity-20 hover:border-opacity-40 hover:bg-opacity-10 transition-all duration-300">
-                <div className="text-2xl font-bold text-white">2+</div>
-                <div className="text-sm text-gray-400">Years</div>
-              </div>
-              <div className="bg-white bg-opacity-5 backdrop-blur-sm rounded-xl p-4 text-center border border-teal-400 border-opacity-20 hover:border-opacity-40 hover:bg-opacity-10 transition-all duration-300">
-                <div className="text-2xl font-bold text-white">50+</div>
-                <div className="text-sm text-gray-400">Clients</div>
-              </div>
-            </div>
+            {/* Animated Stats Cards */}
+            <motion.div 
+              className="flex justify-center lg:justify-start gap-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1.4 }}
+            >
+              {[
+                { number: "10+", label: "Projects", color: "emerald" },
+                { number: "0", label: "Years", color: "cyan" },
+                { number: "0", label: "Clients", color: "teal" }
+              ].map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  className={`bg-white bg-opacity-5 backdrop-blur-sm rounded-xl p-4 text-center border border-${stat.color}-400 border-opacity-20 hover:border-opacity-40 hover:bg-opacity-10 transition-all duration-300`}
+                  initial={{ scale: 0, rotate: -180 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: 1.6 + (index * 0.1),
+                    type: "spring",
+                    stiffness: 200
+                  }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="text-2xl font-bold text-white">{stat.number}</div>
+                  <div className="text-sm text-gray-400">{stat.label}</div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
           
-          {/* Right Side - Profile Image */}
-          <div className="flex-1 flex justify-center">
-            <div className="relative">
-              <div className="w-80 h-80 bg-gradient-to-br from-emerald-400 via-cyan-400 to-teal-500 rounded-full shadow-2xl flex items-center justify-center text-white text-lg font-medium relative overflow-hidden">
-                <div className="text-center">
-                  <div className="w-24 h-24 bg-white bg-opacity-20 rounded-full mx-auto mb-4 backdrop-blur-sm"></div>
-                  <p className="text-white font-medium">Your Photo Here</p>
-                </div>
-                <div className="absolute inset-0 rounded-full border-4 border-white border-opacity-30 animate-spin" style={{animationDuration: '12s'}}></div>
-              </div>
-              
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-emerald-400 rounded-full opacity-60 animate-bounce"></div>
-              <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-cyan-400 rounded-full opacity-60 animate-bounce" style={{animationDelay: '0.5s'}}></div>
-            </div>
-          </div>
+          {/* Right Side - Animated Profile Picture */}
+          <AnimatedProfile />
         </div>
       </div>
     </section>
   );
 };
 
-export default Home;
+export default HomePage;
