@@ -1,6 +1,6 @@
 // src/components/Hero.jsx
 import React from 'react';
-import Button from '../Button';
+import Button from './Button';
 
 const Hero = () => {
   return (

@@ -1,22 +1,21 @@
 // src/components/Header.jsx
 import React, { useState } from 'react';
-import Button from '../Button';
+import { Link, useLocation } from 'react-router-dom';
+
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('home');
+  const location = useLocation();
 
   const navigationButtons = [
-    { id: 'home', label: 'Home', href: '#home' },
-    { id: 'services', label: 'Services', href: '#services' },
-    { id: 'projects', label: 'Projects', href: '#projects' },
-    { id: 'more', label: 'More', href: '#more' }
+    { id: 'home', label: 'Home', path: '/' },
+    { id: 'services', label: 'Services', path: '/services' },
+    { id: 'projects', label: 'Projects', path: '/projects' },
+    { id: 'about', label: 'About', path: '/about' }
   ];
 
-  const handleTabClick = (tabId, href) => {
-    setActiveTab(tabId);
-    // Smooth scroll to section
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+  const isActivePath = (path) => {
+    return location.pathname === path;
   };
 
   return (
@@ -24,39 +23,42 @@ const Header = () => {
       <div className="w-full px-6 lg:px-12">
         <div className="flex justify-between items-center py-6">
           
-          {/* Logo */}
-          <div className="text-3xl font-bold">
+          {/* Logo - Link to Home */}
+          <Link to="/" className="text-3xl font-bold">
             <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
               Anis
             </span>
             <span className="text-white ml-1">Shaikh</span>
-          </div>
+          </Link>
           
-          {/* Desktop Navigation - Button Style */}
+          {/* Desktop Navigation - Using Link instead of buttons */}
           <nav className="hidden lg:flex space-x-4">
             {navigationButtons.map((item) => (
-              <button
+              <Link
                 key={item.id}
-                onClick={() => handleTabClick(item.id, item.href)}
+                to={item.path}
                 className={`
                   px-4 py-2 rounded-full font-bold text-base transition-all duration-300 transform hover:scale-105 relative overflow-hidden
-                  ${activeTab === item.id 
+                  ${isActivePath(item.path)
                     ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-white shadow-lg' 
                     : 'text-white hover:text-emerald-400 bg-white bg-opacity-5 hover:bg-opacity-10'
                   }
                 `}
               >
                 <span className="relative z-10">{item.label}</span>
-                {activeTab !== item.id && (
+                {!isActivePath(item.path) && (
                   <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-cyan-500 opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
                 )}
-              </button>
+              </Link>
             ))}
             
-            {/* Contact Button */}
-            <Button variant="primary" size="medium" className="ml-4">
+            {/* Contact Button as Link */}
+            <Link 
+              to="/contact"
+              className="ml-4 px-6 py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-bold rounded-full transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            >
               Contact
-            </Button>
+            </Link>
           </nav>
           
           {/* Mobile Menu Button */}
@@ -72,32 +74,34 @@ const Header = () => {
           </button>
         </div>
         
-        {/* Mobile Navigation Menu */}
+        {/* Mobile Navigation Menu - Using Link */}
         {isMenuOpen && (
           <nav className="lg:hidden border-t border-white border-opacity-20 py-6 backdrop-blur-lg">
             <div className="flex flex-col space-y-4">
               {navigationButtons.map((item) => (
-                <button
+                <Link
                   key={item.id}
-                  onClick={() => {
-                    handleTabClick(item.id, item.href);
-                    setIsMenuOpen(false);
-                  }}
+                  to={item.path}
+                  onClick={() => setIsMenuOpen(false)}
                   className={`
                     px-4 py-3 rounded-lg font-bold text-lg transition-all duration-300 text-left
-                    ${activeTab === item.id 
+                    ${isActivePath(item.path)
                       ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-white' 
                       : 'text-white hover:text-emerald-400 bg-white bg-opacity-5 hover:bg-opacity-10'
                     }
                   `}
                 >
                   {item.label}
-                </button>
+                </Link>
               ))}
               <div className="pt-2">
-                <Button variant="primary" size="medium" className="w-full">
+                <Link 
+                  to="/contact"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block w-full px-6 py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-bold rounded-full text-center"
+                >
                   Contact
-                </Button>
+                </Link>
               </div>
             </div>
           </nav>

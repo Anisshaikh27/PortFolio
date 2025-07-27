@@ -1,6 +1,6 @@
 // src/components/ProjectCard.jsx
 import React from 'react';
-import Button from '../Button';
+import Button from './Button';
 
 const ProjectCard = ({ project, featured = false }) => {
   const handleLiveDemo = () => {

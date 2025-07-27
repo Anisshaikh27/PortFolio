@@ -1,19 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 
-import HomePage from './components/HomePage';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import CustomBackground from "./components/CustomBackground";
+import NotFound from "./Pages/NotFound";
+import HomePage from "./Pages/HomePage";
+import ProjectsPage from "./Pages/ProjectsPage";
+import Header from "./components/Header";
+import ServicesPage from "./Pages/ServicesPage";
+import ContactPage from "./Pages/ContactPage";
+import AboutPage from "./Pages/AboutPage";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <div className="App">
-     
-      {/* Add padding-top to account for fixed header */}
-      <div className="pt-20">
-        <HomePage />
+  <Router>
+    <CustomBackground>
+      <Header />
+      <div className="pt-24">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage/>} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
-    </div>
-  </React.StrictMode>
+    </CustomBackground>
+  </Router>
 );
-

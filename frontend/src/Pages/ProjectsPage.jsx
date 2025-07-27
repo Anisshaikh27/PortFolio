@@ -1,8 +1,8 @@
 // src/components/Projects.jsx
 import React, { useState, useMemo } from 'react';
-import ProjectCard from './ProjectCard';
-import Button from '../Button';
-import { projectsData, projectCategories } from '../../data/projects';
+import ProjectCard from '../components/ProjectCard';
+import Button from '../components/Button';
+import { projectsData, projectCategories } from '../data/projects';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
