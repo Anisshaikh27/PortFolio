@@ -3,20 +3,19 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../components/Button';
 import AnimatedRole from '../components/AnimatedRole';
-import AnimatedProfile from '../components/AnimatedProfile';
+import AnimatedProfile from '../components/AnimatedProfile'; // Add this import
 
-const HomePage = () => {
+const Home = () => {
   return (
     <section className="min-h-screen flex items-center py-16 px-4 relative">
-      <div className="container mx-auto max-w-6xl">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
+      <div className="container mx-auto max-w-7xl">
+        <div className="flex flex-col lg:flex-row items-center gap-16">
           
           {/* Left Side - Text Content */}
           <div className="flex-1 text-center lg:text-left">
             <div className="mb-8">
-              {/* Animated Main Heading */}
               <motion.h1 
-                className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight mb-6"
+                className="text-4xl md:text-5xl lg:text-6xl font-jetbrains font-bold leading-tight mb-6"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -32,7 +31,6 @@ const HomePage = () => {
                 </motion.span>
               </motion.h1>
               
-              {/* Replace the static subtitle with AnimatedRole */}
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -41,18 +39,17 @@ const HomePage = () => {
                 <AnimatedRole />
               </motion.div>
               
-              {/* Animated Description */}
               <motion.p 
-                className="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+                className="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-jetbrains"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.0 }}
               >
-                A Tech Enthusiastic Web Developer with a Passion for Crafting Digital Experiences.
+                I create beautiful, responsive websites and intelligent ML solutions. 
+                From React frontends to Python backends, I build end-to-end digital experiences.
               </motion.p>
             </div>
             
-            {/* Animated Action Buttons */}
             <motion.div 
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10"
               initial={{ opacity: 0, y: 40 }}
@@ -67,7 +64,6 @@ const HomePage = () => {
               </Button>
             </motion.div>
             
-            {/* Animated Stats Cards */}
             <motion.div 
               className="flex justify-center lg:justify-start gap-6"
               initial={{ opacity: 0 }}
@@ -75,9 +71,9 @@ const HomePage = () => {
               transition={{ duration: 0.8, delay: 1.4 }}
             >
               {[
-                { number: "10+", label: "Projects", color: "emerald" },
-                { number: "0", label: "Years", color: "cyan" },
-                { number: "0", label: "Clients", color: "teal" }
+                { number: "2", label: "Core Tech", color: "emerald" },
+                { number: "10+", label: "Projects", color: "cyan" },
+                { number: "0", label: "Years", color: "teal" }
               ].map((stat, index) => (
                 <motion.div
                   key={stat.label}
@@ -92,14 +88,14 @@ const HomePage = () => {
                   }}
                   whileHover={{ scale: 1.05 }}
                 >
-                  <div className="text-2xl font-bold text-white">{stat.number}</div>
-                  <div className="text-sm text-gray-400">{stat.label}</div>
+                  <div className="text-2xl font-jetbrains font-bold text-white">{stat.number}</div>
+                  <div className="text-sm font-jetbrains text-gray-400">{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>
           </div>
           
-          {/* Right Side - Animated Profile Picture */}
+          {/* Right Side - Animated Profile */}
           <AnimatedProfile />
         </div>
       </div>
@@ -107,4 +103,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Home;
