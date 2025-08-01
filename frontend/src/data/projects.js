@@ -47,7 +47,7 @@ export const projectsData = [
     title: "Homestay Booking Platform",
     shortDescription: "Full-stack MERN application for homestay bookings with authentication",
     fullDescription: "Built a comprehensive homestay booking platform using the MERN stack with RESTful APIs. Features include user authentication & authorization, property listings, booking management, user profiles, and secure payment integration. Implemented JWT authentication and MongoDB for data storage.",
-    image: "/images/Homestay-UI.png",
+    image: "/images/homestay-UI.png",
     technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "RESTful APIs", "JWT", "Authentication", "Authorization", "CSS"],
     category: "web",
     status: "completed",
