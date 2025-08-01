@@ -5,15 +5,14 @@ export const projectsData = [
     title: "Gemstone Price Prediction",
     shortDescription: "MLOps pipeline for gemstone price prediction with CI/CD deployment on AWS",
     fullDescription: "Built a complete MLOps pipeline for gemstone price prediction featuring web scraping, data validation with pytest and flake8, model training on high-dimensional data, and automated deployment on AWS EC2. Implemented MLflow for experiment tracking, DVC for data versioning, and Docker for containerization.",
-    image: "/projects/gemstone-prediction.jpg",
+    image: 'images/Gemstone-UI.png',
     technologies: ["Python", "MLflow", "DVC", "AWS S3", "AWS EC2", "Docker", "Pytest", "Flake8", "Scikit-learn", "CI/CD", "GitHub Actions"],
-    category: "ml",
+    category: "Machine Learning",
     status: "completed",
     featured: true,
     links: {
-      live: "https://your-gemstone-prediction-app.com",
-      github: "https://github.com/Anisshaikh27/gemstone-price-prediction",
-      case_study: "/case-studies/gemstone-prediction"
+      live: "https://gemstone-price-prediction-zenu.onrender.com/",
+      github: "https://github.com/Anisshaikh27/Gemstone-price-prediction"
     },
     metrics: {
       performance: 94,
@@ -27,20 +26,19 @@ export const projectsData = [
     title: "RASA Intelligent Chatbot",
     shortDescription: "AI-powered chatbot using RASA framework with LLM integration",
     fullDescription: "Created an intelligent web chatbot using RASA Open Source with LLM integration to handle both in-scope and out-of-scope queries. Features include natural language understanding, rule-based responses, custom actions, and a responsive Bootstrap frontend interface.",
-    image: "/projects/rasa-chatbot.jpg",
+    image: "/images/chatbot-UI.png",
     technologies: ["RASA NLU", "Python", "LLM", "Bootstrap", "Natural Language Processing", "Custom Actions", "Rule-Based System"],
     category: "ai",
     status: "completed",
     featured: true,
     links: {
       live: "https://your-rasa-chatbot-demo.com",
-      github: "https://github.com/Anisshaikh27/rasa-chatbot",
-      case_study: "/case-studies/rasa-chatbot"
+      github: "https://github.com/Anisshaikh27/Chatbot-using-Rasa"
     },
     metrics: {
       performance: 96,
       accuracy: "89%",
-      responseTime: "<200ms"
+      responseTime: "<500ms"
     },
     date: "2024-05"
   },
@@ -49,15 +47,14 @@ export const projectsData = [
     title: "Homestay Booking Platform",
     shortDescription: "Full-stack MERN application for homestay bookings with authentication",
     fullDescription: "Built a comprehensive homestay booking platform using the MERN stack with RESTful APIs. Features include user authentication & authorization, property listings, booking management, user profiles, and secure payment integration. Implemented JWT authentication and MongoDB for data storage.",
-    image: "/projects/homestay-website.jpg",
+    image: "/images/Homestay-UI.png",
     technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "RESTful APIs", "JWT", "Authentication", "Authorization", "CSS"],
     category: "web",
     status: "completed",
     featured: true,
     links: {
-      live: "https://your-homestay-platform.com",
-      github: "https://github.com/Anisshaikh27/homestay-website",
-      case_study: "/case-studies/homestay-platform"
+      live: "https://homestay-pb5r.onrender.com",
+      github: "https://github.com/Anisshaikh27/homestay-website-"
     },
     metrics: {
       performance: 91,
@@ -71,15 +68,14 @@ export const projectsData = [
     title: "MBTI Personality Recognition",
     shortDescription: "NLP-based personality classifier for predicting MBTI types from text",
     fullDescription: "Developed a personality classifier to predict MBTI personality types from textual data using advanced NLP techniques. Implemented Bag-of-Words, word embeddings, and various machine learning algorithms to analyze writing patterns and personality traits.",
-    image: "/projects/personality-recognition.jpg",
+    image: "../assets/images/",
     technologies: ["Python", "NLP", "Scikit-learn", "Bag-of-Words", "Word2Vec", "Pandas", "NumPy", "NLTK", "Data Visualization"],
     category: "ml",
     status: "completed",
     featured: false,
     links: {
       live: "https://personality-recognition-demo.com",
-      github: "https://github.com/Anisshaikh27/personality-recognition",
-      case_study: "/case-studies/personality-recognition"
+      github: "https://github.com/Anisshaikh27/personality-recognition"
     },
     metrics: {
       performance: 88,
@@ -93,7 +89,7 @@ export const projectsData = [
     title: "YourKabaadiwaala Platform",
     shortDescription: "Online scrap dealer platform revolutionizing waste management industry",
     fullDescription: "A cutting-edge scrap dealing web application designed to revolutionize the scrap dealing industry by streamlining and modernizing operations for scrap dealers, recyclers, and their customers. Features include online booking, price estimation, pickup scheduling, and dealer network management.",
-    image: "/projects/kabaadiwaala-platform.jpg",
+    image: "../assets/images/",
     technologies: ["WIX Website Builder", "Business Logic", "User Experience Design", "Payment Integration", "Booking System"],
     category: "web",
     status: "completed",
@@ -115,7 +111,7 @@ export const projectsData = [
     title: "Credit Card Fraud Detection",
     shortDescription: "Award-winning ML model for detecting fraudulent credit card transactions",
     fullDescription: "Runner-up project at GEEK-vishwa Hackathon focusing on credit card fraud detection using machine learning algorithms. Implemented advanced feature engineering, anomaly detection techniques, and real-time prediction capabilities to identify fraudulent transactions with high accuracy.",
-    image: "/projects/fraud-detection.jpg",
+    image: "../assets/images/",
     technologies: ["Python", "Scikit-learn", "Pandas", "NumPy", "Machine Learning", "Anomaly Detection", "Data Preprocessing", "Feature Engineering"],
     category: "ml",
     status: "completed",
@@ -137,14 +133,14 @@ export const projectsData = [
     title: "AI-Powered Chatbots Research",
     shortDescription: "IEEE conference research paper on AI-powered chatbot technologies",
     fullDescription: "Comprehensive research paper on AI-Powered Chatbots submitted to IEEE Conference 2025 (under review). The research explores advanced conversational AI techniques, natural language processing improvements, and the integration of large language models in chatbot systems.",
-    image: "/projects/research-paper.jpg",
+    image: "../assets/images/",
     technologies: ["Research", "AI", "Natural Language Processing", "Chatbot Technology", "Academic Writing", "Literature Review"],
     category: "research",
     status: "in-progress",
     featured: false,
     links: {
       live: "https://research-paper-preview.com",
-      github: null,
+      github: 'https://github.com/Anisshaikh27/Certifications/blob/main/ResearchPaperFinal.pdf',
       case_study: "/research/ai-chatbots-paper"
     },
     metrics: {

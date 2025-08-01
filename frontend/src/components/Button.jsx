@@ -1,8 +1,20 @@
 // src/components/Button.jsx
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Button = ({ children, variant = 'primary', size = 'medium', onClick, className = '' }) => {
-  const baseClasses = "font-bold rounded-full transform transition-all duration-300 hover:scale-105 hover:shadow-xl inline-block text-center";
+const Button = ({ 
+  children, 
+  variant = 'primary', 
+  size = 'medium', 
+  onClick, 
+  className = '', 
+  to,          // For internal React Router navigation
+  href,        // For external links
+  type = 'button',
+  disabled = false,
+  ...props 
+}) => {
+  const baseClasses = "font-jetbrains font-bold rounded-full transform transition-all duration-300 hover:scale-105 hover:shadow-xl inline-block text-center cursor-pointer";
   
   const variants = {
     primary: "bg-gradient-to-r from-emerald-500 to-cyan-500 text-white hover:from-emerald-600 hover:to-cyan-600 shadow-lg",
@@ -16,11 +28,45 @@ const Button = ({ children, variant = 'primary', size = 'medium', onClick, class
     medium: "px-6 py-3 text-base",
     large: "px-8 py-4 text-lg"
   };
-  
+
+  const finalClassName = `${baseClasses} ${variants[variant]} ${sizes[size]} ${className} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`;
+
+  // Internal Link (React Router)
+  if (to) {
+    return (
+      <Link 
+        to={to}
+        className={finalClassName}
+        {...props}
+      >
+        {children}
+      </Link>
+    );
+  }
+
+  // External Link
+  if (href) {
+    return (
+      <a 
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={finalClassName}
+        {...props}
+      >
+        {children}
+      </a>
+    );
+  }
+
+  // Regular Button
   return (
     <button 
-      className={`${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`}
+      type={type}
+      className={finalClassName}
       onClick={onClick}
+      disabled={disabled}
+      {...props}
     >
       {children}
     </button>

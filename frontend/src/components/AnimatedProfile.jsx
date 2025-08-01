@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import Image from "../assets/images/AI_image.webp";
+import Image from "../assets/Profile_Pic.webp";
 import { 
   SiReact, 
   SiMongodb, 
@@ -14,12 +14,12 @@ import {
 
 // MUCH BETTER positioning - farther from the profile picture
 const techStack = [
-  { icon: <SiPython />, color: '#3776ab', name: 'Python', x: -170, y: -120 },    // Far top left
-  { icon: <SiReact />, color: '#61dafb', name: 'React', x: 170, y: -120 },      // Far top right  
-  { icon: <SiTensorflow />, color: '#ff6f00', name: 'TensorFlow', x: -170, y: 20 }, // Far middle left
+  { icon: <SiPython />, color: '#3776ab', name: 'Python', x: -180, y: -120 },    // Far top left
+  { icon: <SiReact />, color: '#61dafb', name: 'React', x: 180, y: -120 },      // Far top right  
+  { icon: <SiTensorflow />, color: '#ff6f00', name: 'TensorFlow', x: -180, y: 20 }, // Far middle left
   { icon: <SiMongodb />, color: '#47a248', name: 'MongoDB', x: 170, y: 20 },    // Far middle right
-  { icon: <SiAmazonwebservices />, color: '#ff9900', name: 'AWS', x: -130, y: 140 }, // Far bottom left
-  { icon: <SiDocker />, color: '#2496ed', name: 'Docker', x: 130, y: 140 }      // Far bottom right
+  { icon: <SiAmazonwebservices />, color: '#ff9900', name: 'AWS', x: -180, y: 145}, // Far bottom left
+  { icon: <SiDocker />, color: '#2496ed', name: 'Docker', x: 130, y: 150 }      // Far bottom right
 ];
 
 const AnimatedProfile = () => {

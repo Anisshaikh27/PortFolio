@@ -8,11 +8,9 @@ import {
 } from 'react-icons/si';
 import { 
   FaRobot, 
-  FaCode, 
   FaBrain, 
   FaServer,
-  FaMobile,
-  FaPalette 
+
 } from 'react-icons/fa';
 
 const roles = [
